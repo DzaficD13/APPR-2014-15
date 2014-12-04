@@ -32,8 +32,45 @@ uvoziTrajanjebrezposelnosti <- function() {
 }
 
 # Zapišimo podatke v razpredelnico druzine.
-cat("Uvažam podatke o brezposlenosti...\n")
+cat("Uvažam podatke o trajanju brezposlenosti...\n")
 trajanjebrez <- uvoziTrajanjebrezposelnosti()
+
+
+
+
+
+
+
+# Funkcija, ki uvozi podatke iz datoteke druzine.csv
+uvoziBrezpspol <- function() {
+  return(read.table("podatki/brezpspol.csv", sep = ";", as.is = TRUE, header = TRUE,
+                    
+                    fileEncoding = "Windows-1250"))
+}
+
+# Zapišimo podatke v razpredelnico druzine.
+cat("Uvažam podatke o brezposlenosti glede na spol...\n")
+brezpspol <- uvoziBrezpspol()
+
+
+
+
+
+
+# Funkcija, ki uvozi podatke iz datoteke druzine.csv
+uvoziBrezstarost <- function() {
+  return(read.table("podatki/brezstarost.csv", sep = ";", as.is = TRUE, header = TRUE,
+                    
+                    fileEncoding = "Windows-1250"))
+}
+
+# Zapišimo podatke v razpredelnico druzine.
+cat("Uvažam podatke o brezposlenosti glede na starost...\n")
+brezstarost <- uvoziBrezstarost()
+
+
+
+
 
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
