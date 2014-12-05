@@ -3,7 +3,7 @@
 
 uvoziTrajanjebrezposelnosti <- function() {
   return(read.table("podatki/trajanjebrez.csv", sep = ";", as.is = TRUE, header = TRUE,
-                    row.names = 1,
+                    
                     fileEncoding = "Windows-1250"))
 }
 

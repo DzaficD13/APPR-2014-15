@@ -9,4 +9,5 @@ http://www.ess.gov.si/trg_dela/trg_dela_v_stevilkah/registrirana_brezposelnost#S
 
 Cilj projekta je predvsem spoznati delo v programskem okolju R ter analizirati brezposelnost v Sloveniji glede na trajanje iskanja dela in izobrazbo.
 
+V drugi fazi projekta sem dodala 3 tabele, katere sem najprej spremenila, potem pa uvozila v CSV obliki na svoj repozitorij. Nato sem za dve tabeli oblikovala tudi grafa.
 
