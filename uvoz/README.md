@@ -1,9 +1,24 @@
 # Obdelava, uvoz in čiščenje podatkov.
 
-uvoziBrezposelnost <- function() {
-  return(read.table("podatki/brezposelnost.csv", sep = ";", as.is = TRUE,
-                      row.names = 3,
-                      col.names = c("2010", "2011", "2012", "2013"),
-                      fileEncoding = "Windows-1250"))
+
+uvoziTrajanjebrezposelnosti <- function() {
+  return(read.table("podatki/trajanjebrez.csv", sep = ";", as.is = TRUE, header = TRUE,
+                    row.names = 1,
+                    fileEncoding = "Windows-1250"))
 }
 
+
+
+uvoziBrezpspol <- function() {
+  return(read.table("podatki/brezpspol.csv", sep = ";", as.is = TRUE, header = TRUE,
+                    
+                    fileEncoding = "Windows-1250"))
+}
+
+
+
+uvoziBrezstarost <- function() {
+  return(read.table("podatki/brezstarost.csv", sep = ";", as.is = TRUE, header = TRUE,
+                    
+                    fileEncoding = "Windows-1250"))
+}
