@@ -4,22 +4,28 @@
 source("lib/uvozi.zemljevid.r")
 
 # Uvozimo zemljevid.
+# cat("Uvažam zemljevid...\n")
+# obcine <- uvozi.zemljevid("http://e-prostor.gov.si/fileadmin/BREZPLACNI_POD/RPE/OB.zip",
+#                           "obcine", "OB/OB.shp", mapa = "zemljevid",
+#                           encoding = "Windows-1250")
+
 cat("Uvažam zemljevid...\n")
-obcine <- uvozi.zemljevid("http://e-prostor.gov.si/fileadmin/BREZPLACNI_POD/RPE/OB.zip",
-                          "obcine", "OB/OB.shp", mapa = "zemljevid",
-                          encoding = "Windows-1250")
+slo <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2/shp/SVN_adm.zip",
+                       "slovenija", "SVN_adm1.shp", mapa = "zemljevid",
+                       encoding = "Windows-1250")
 
 # Funkcija, ki podatke preuredi glede na vrstni red v zemljevidu
 preuredi <- function(podatki, zemljevid) {
-  nove.obcine <- c()
-  manjkajo <- ! nove.obcine %in% rownames(podatki)
+  nove.slo <- c()
+  manjkajo <- ! nove.slo %in% rownames(podatki)
   M <- as.data.frame(matrix(nrow=sum(manjkajo), ncol=length(podatki)))
   names(M) <- names(podatki)
-  row.names(M) <- nove.obcine[manjkajo]
+  row.names(M) <- nove.slo[manjkajo]
   podatki <- rbind(podatki, M)
   
-  out <- data.frame(podatki[order(rownames(podatki)), ])[rank(levels(zemljevid$OB_UIME)[rank(zemljevid$OB_UIME)]), ]
-  if (ncol(podatki) == 1) {
+  out <- data.frame(podatki[order(rownames(podatki)), ])[rank(levels(zemljevid$NAME_1)[rank(zemljevid$NAME_1)]), ]
+  if (ncol(podatki) == 1) { 
+    
     out <- data.frame(out)
     names(out) <- names(podatki)
     rownames(out) <- rownames(podatki)
@@ -28,19 +34,57 @@ preuredi <- function(podatki, zemljevid) {
 }
 
 # Preuredimo podatke, da jih bomo lahko izrisali na zemljevid.
-druzine <- preuredi(druzine, obcine)
+brezposelnost <- brezpspol[1:12,]
+rownames(brezposelnost) <- brezposelnost[,4]
+zbrezpspol <- preuredi(brezposelnost, slo)
+
+# zbrezposelnost <- preuredi(brezposelnost[1:12,4], slo)
 
 # Izračunamo povprečno velikost družine.
-druzine$povprecje <- apply(druzine[1:4], 1, function(x) sum(x*(1:4))/sum(x))
-min.povprecje <- min(druzine$povprecje, na.rm=TRUE)
-max.povprecje <- max(druzine$povprecje, na.rm=TRUE)
+# druzine$povprecje <- apply(druzine[1:4], 1, function(x) sum(x*(1:4))/sum(x))
+# min.povprecje <- min(druzine$povprecje, na.rm=TRUE)
+# max.povprecje <- max(druzine$povprecje, na.rm=TRUE)
+
+min.2014 <- min(zbrezpspol[4], na.rm=TRUE)
+max.2014 <- max(zbrezpspol[4], na.rm=TRUE)
+norm.2014 <- (zbrezpspol[,4]-min.2014)/(max.2014-min.2014)
+
+
+
+
 
 # Narišimo zemljevid v PDF.
 cat("Rišem zemljevid...\n")
-pdf("slike/povprecna_druzina.pdf", width=6, height=4)
+pdf("slike/Slovenija.pdf", width=6, height=4)
+
+# n = 100
+# barve = topo.colors(n)[1+(n-1)*(druzine$povprecje-min.povprecje)/(max.povprecje-min.povprecje)]
+# plot(obcine, col = barve)
+
 
 n = 100
-barve = topo.colors(n)[1+(n-1)*(druzine$povprecje-min.povprecje)/(max.povprecje-min.povprecje)]
-plot(obcine, col = barve)
+#barve =rgb(1, 0, 0, norm.2013)
+barve =rgb(1, 1, (n:1)/n)[unlist(1+(n-1)*norm.2014)]
+plot(slo, col = barve, bg="lightblue")
+
+
+#imena regij
+koordinate1 <- coordinates(slo)
+imena1 <- as.character(slo$NAME_1)
+rownames(koordinate1) <- imena1
+names(imena1) <- imena1
+
+koordinate1["Obalno-kraška",1] <- koordinate1["Obalno-kraška",1]+0.1 #levo,desno
+koordinate1["Obalno-kraška",2] <- koordinate1["Obalno-kraška",2]+0.025 #dol,gor
+koordinate1["Zasavska",2] <- koordinate1["Zasavska",2]+0.01
+koordinate1["Spodnjeposavska",1] <- koordinate1["Spodnjeposavska",1]+0.9
+koordinate1["Spodnjeposavska",2] <- koordinate1["Spodnjeposavska",2]
+imena1["Jugovzhodna Slovenija"] <- "Jugovzhodna\nSlovenija"
+imena1["Notranjsko-kraška"] <- "Notranjsko-\nkraška"
+imena1["Obalno-kraška"] <- "Obalno-\nkraška"
+imena1["Spodnjeposavska"]<- "Spodnje-\nposavska"
+
+text(coordinates(slo),labels=imena1, cex=0.3)
+title("Brezposelnost v letu 2014")
 
 dev.off()
