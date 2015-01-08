@@ -6,7 +6,7 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2014/15.
 
 ## Tematika
 
-Tema mojega projekta je brezposelnost v Sloveniji. Najprej se bom osredotočila na analizo brezposelnosti po naslednjih spremenljivkah: trajanje iskanja dela, spol, kohezijska regija in leto (1. tabela). Potem bom še analizirala brezposelnost v Sloveniji po izobrazbi in regijah v letu 2014 (2. tabela).
+Tema mojega projekta je brezposelnost v Sloveniji. Najprej se bom osredotočila na analizo brezposelnosti po naslednjih spremenljivkah: trajanje iskanja dela, spol in statrost brezposlenih po statističnih ergijah Slovenije v letu 2014
 
 Povezava do podatkovnih tabel:
 http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0762111S&ti=&path=../Database/Dem_soc/07_trg_dela/02_07008_akt_preb_po_anketi/02_07621_akt_preb_ADS_letno/&lang=2
