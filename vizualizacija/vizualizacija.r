@@ -27,6 +27,7 @@ preuredi <- function(podatki, zemljevid) {
   if (ncol(podatki) == 1) { 
     
     out <- data.frame(out)
+    
     names(out) <- names(podatki)
     rownames(out) <- rownames(podatki)
   }
@@ -35,7 +36,7 @@ preuredi <- function(podatki, zemljevid) {
 
 # Preuredimo podatke, da jih bomo lahko izrisali na zemljevid.
 brezposelnost <- brezpspol[1:12,]
-rownames(brezposelnost) <- brezposelnost[,4]
+#rownames(brezposelnost) <- brezposelnost[,4]
 zbrezpspol <- preuredi(brezposelnost, slo)
 
 # zbrezposelnost <- preuredi(brezposelnost[1:12,4], slo)
@@ -45,9 +46,9 @@ zbrezpspol <- preuredi(brezposelnost, slo)
 # min.povprecje <- min(druzine$povprecje, na.rm=TRUE)
 # max.povprecje <- max(druzine$povprecje, na.rm=TRUE)
 
-min.2014 <- min(zbrezpspol[4], na.rm=TRUE)
-max.2014 <- max(zbrezpspol[4], na.rm=TRUE)
-norm.2014 <- (zbrezpspol[,4]-min.2014)/(max.2014-min.2014)
+min.2014 <- min(zbrezpspol[3], na.rm=TRUE)
+max.2014 <- max(zbrezpspol[3], na.rm=TRUE)
+norm.2014 <- (zbrezpspol[,3]-min.2014)/(max.2014-min.2014)
 
 
 
@@ -64,7 +65,7 @@ pdf("slike/Slovenija.pdf", width=6, height=4)
 
 n = 100
 #barve =rgb(1, 0, 0, norm.2013)
-barve =rgb(1, 1, (n:1)/n)[unlist(1+(n-1)*norm.2014)]
+barve =rgb((n:1)/n, 1, 1)[unlist(1+(n-1)*norm.2014)]
 plot(slo, col = barve, bg="lightblue")
 
 

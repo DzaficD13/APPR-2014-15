@@ -44,7 +44,7 @@ trajanjebrez <- uvoziTrajanjebrezposelnosti()
 # Funkcija, ki uvozi podatke iz datoteke druzine.csv
 uvoziBrezpspol <- function() {
   return(read.table("podatki/brezpspol.csv", sep = ";", as.is = TRUE, header = TRUE,
-                    
+                    row.names = 1,
                     fileEncoding = "Windows-1250"))
 }
 
