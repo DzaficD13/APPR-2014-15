@@ -11,3 +11,4 @@ Cilj projekta je predvsem spoznati delo v programskem okolju R ter analizirati b
 
 V drugi fazi projekta sem dodala 3 tabele, katere sem najprej spremenila, potem pa uvozila v CSV obliki na svoj repozitorij. Nato sem za dve tabeli oblikovala tudi grafa.
 
+V tretji fazi projekta sem narisala zemljevid Slovenije, ki prikazuje brezposelnost v Sloveniji po statističnih regijah v letu 2014. 
