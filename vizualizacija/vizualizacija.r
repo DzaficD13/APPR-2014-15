@@ -63,10 +63,20 @@ pdf("slike/Slovenija.pdf", width=6, height=4)
 # plot(obcine, col = barve)
 
 
-n = 100
-#barve =rgb(1, 0, 0, norm.2013)
-barve =rgb((n:1)/n, 1, 1)[unlist(1+(n-1)*norm.2014)]
-plot(slo, col = barve, bg="lightblue")
+# n = 100
+# #barve =rgb(1, 0, 0, norm.2013)
+# barve =rgb((n:1)/n, 1, 1)[unlist(1+(n-1)*norm.2014)]
+# plot(slo, col = barve, bg="lightblue")
+
+n <- 100
+barve <- rgb((n:1)/n, 1, 1)
+plot(slo, col = barve[unlist(1+(n-1)*norm.2014)], bg="lightblue")
+
+k <- 5 # število stopenj v legendi
+stopnje <- seq(min.2014, max.2014, (max.2014-min.2014)/(k-1))
+legend("bottomright", legend = round(stopnje),
+       fill = barve[seq(1, n, (n-1)/(k-1))], bg = "white")
+
 
 
 #imena regij
@@ -78,14 +88,14 @@ names(imena1) <- imena1
 koordinate1["Obalno-kraška",1] <- koordinate1["Obalno-kraška",1]+0.1 #levo,desno
 koordinate1["Obalno-kraška",2] <- koordinate1["Obalno-kraška",2]+0.025 #dol,gor
 koordinate1["Zasavska",2] <- koordinate1["Zasavska",2]+0.01
-koordinate1["Spodnjeposavska",1] <- koordinate1["Spodnjeposavska",1]+0.9
+koordinate1["Spodnjeposavska",1] <- koordinate1["Spodnjeposavska",1]+0.1
 koordinate1["Spodnjeposavska",2] <- koordinate1["Spodnjeposavska",2]
 imena1["Jugovzhodna Slovenija"] <- "Jugovzhodna\nSlovenija"
 imena1["Notranjsko-kraška"] <- "Notranjsko-\nkraška"
 imena1["Obalno-kraška"] <- "Obalno-\nkraška"
 imena1["Spodnjeposavska"]<- "Spodnje-\nposavska"
 
-text(coordinates(slo),labels=imena1, cex=0.3)
+text(koordinate1,labels=imena1, cex=0.3)
 title("Brezposelnost v letu 2014")
 
 dev.off()
