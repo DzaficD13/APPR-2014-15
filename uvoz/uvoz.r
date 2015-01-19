@@ -19,7 +19,7 @@
 # # fazah.
 
 
-
+source("lib/xml.r")
 
 
 # 2. faza: Uvoz podatkov
@@ -67,6 +67,17 @@ uvoziBrezstarost <- function() {
 # Zapišimo podatke v razpredelnico druzine.
 cat("Uvažam podatke o brezposlenosti glede na starost...\n")
 brezstarost <- uvoziBrezstarost()
+
+#Tabela brezposlenostpoletih za 4. fazo projekta:
+uvoziBrezposelnostpoletih <- function() {
+  return(read.table("podatki/brezposelnostpoletih.csv", sep = ";", as.is = TRUE, header = TRUE,
+                    
+                    fileEncoding = "Windows-1250"))
+}
+
+# Zapišimo podatke v razpredelnico druzine.
+cat("Uvažam podatke o brezposlenosti po letih...\n")
+brezposelnostpoletih <- uvoziBrezposelnostpoletih()
 
 
 

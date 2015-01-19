@@ -74,7 +74,7 @@ plot(slo, col = barve[unlist(1+(n-1)*norm.2014)], bg="lightblue")
 
 k <- 5 # število stopenj v legendi
 stopnje <- seq(min.2014, max.2014, (max.2014-min.2014)/(k-1))
-legend("bottomright", legend = round(stopnje),
+legend("bottomright", title = "v tisočih", legend = round(stopnje),
        fill = barve[seq(1, n, (n-1)/(k-1))], bg = "white")
 
 
