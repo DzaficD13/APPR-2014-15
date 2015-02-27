@@ -68,10 +68,15 @@ uvoziBrezstarost <- function() {
 cat("Uvažam podatke o brezposlenosti glede na starost...\n")
 brezstarost <- uvoziBrezstarost()
 
-#Tabela brezposlenostpoletih za 4. fazo projekta:
+
+
+
+
+
+#Tabela brezposelnostpoletih za 4. fazo projekta:
 uvoziBrezposelnostpoletih <- function() {
-  return(read.table("podatki/brezposelnostpoletih.csv", sep = ";", as.is = TRUE, header = TRUE,
-                    
+  return(read.table("podatki/leta.csv", sep = ";", as.is = TRUE, header = TRUE,
+                   
                     fileEncoding = "Windows-1250"))
 }
 
@@ -79,6 +84,18 @@ uvoziBrezposelnostpoletih <- function() {
 cat("Uvažam podatke o brezposlenosti po letih...\n")
 brezposelnostpoletih <- uvoziBrezposelnostpoletih()
 
+
+
+#Tabela bdp za 4. fazo projekta:
+uvoziBDP <- function() {
+  return(read.table("podatki/bdp.csv", sep = ";", as.is = TRUE, header = TRUE,
+                    
+                    fileEncoding = "Windows-1250"))
+}
+
+# Zapišimo podatke v razpredelnico druzine.
+cat("Uvažam podatke o brezposlenosti po letih...\n")
+bdp <- uvoziBDP()
 
 
 
