@@ -51,26 +51,21 @@ ostp<-sapply(list(linp, kvp, loep), function(x) sum(x$residuals^2))
 sapply(list(linp, kvp, loep), function(x) sum(x$residuals^2))
 
 
-#BDP
-
-
-# yp<-bdp[1:14, 2]
-# plot(bdp[1:14, 1], yp, ylab="Stevilo prebivalcev v milijonih",xlab="leto", main="Populacija v EU(28)",col="blue", type="l" )
-# 
-# z<-brezposelnostpoletih[1:14, 2]
-# lines(bdp[1:14, 1], z,type="l", col="blue")
-
-
+#GRAF BDP
 
 z<-bdp[1:14, 2]
-plot(bdp[1:14, 1], z, type="l", xlab="leta", ylab="celotna sprememba", main="Sprememba populacije EU",col="lightblue")
+plot(bdp[1:14, 1], z, type="l", xlab="leto", ylab="Stevilo brezposelnih", main="Bdp in stevilo brezposelnih",col="lightblue")
 
 y<-bdp[1:14, 3]
 lines(bdp[1:14, 1], y, type="l" , col="blue")
 
 
-# legend("topright", col = c("orange", "lightblue", "blue"), lty = "solid", cex = 0.5,
-#        legend = c("Celotna sprememba", "Naravni prirastek", "Neto migracije"))
-# abline(h = 0, col = "gray", lty = "dashed")
+#GRAF SEZONA
+
+z<-sezona[1:12,2]
+plot(sezona[1:12, 1]), z, type="l", col="blue")
+    
+
+
 
 

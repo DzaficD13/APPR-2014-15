@@ -98,6 +98,16 @@ cat("Uvažam podatke o brezposlenosti po letih...\n")
 bdp <- uvoziBDP()
 
 
+#Tabela SEZONA za 4. fazo projekta:
+uvoziSEZONA <- function() {
+  return(read.table("podatki/sezona.csv", sep = ";", as.is = TRUE, header = TRUE,
+                    
+                    fileEncoding = "Windows-1250"))
+}
+
+# Zapišimo podatke v razpredelnico druzine.
+cat("Uvažam podatke o brezposelnost glede na mesece...\n")
+sezona <- uvoziSEZONA()
 
 
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
