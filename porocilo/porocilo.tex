@@ -14,10 +14,12 @@ Analiza podatkov s programom R}
 \author{Dževada Džafić}
 \maketitle
 
-\section{Brezposelnost v Sloveniji}
+\section{Izbira teme}
 
-Tema mojega projekta je brezposelnost v Sloveniji. Osredotočila sem se na analizo brezposelnosti po naslednjih spremenljivkah: trajanje iskanja dela, spol in starost po statističnih regijah Slovenije v letu 2014.
 
+Za temo projekta sem si izbrala brezposelnost v Sloveniji. Osredotočila sem se na analizo brezposelnosti po naslednjih spremenljivkah: trajanje iskanja dela, spol in starost po statističnih regijah Slovenije v letu 2014.
+
+Večino podatkov sem dobila iz spletnih strani Zavoda za zaposlovanje in SURS-a.
 Povezava do podatkovnih tabel:
 \begin{itemize}
 
@@ -32,30 +34,70 @@ Cilj projekta je predvsem spoznati delo v programskem okolju R ter analizirati b
 \section{Obdelava, uvoz in čiščenje podatkov}
 
 V drugi fazi projekta sem uvozila 3 tabele v obliki CSV ter narisala 2 grafa.
-Prva tabela prikazuje brezposlenost po statisičnih regijah Slovenije glede na trajanje brezposlenosti.
-V drugi tabeli sem prikazala brezposlenost po statističnih regijah Slovenije glede na spol. Tretja tabela pa prikazuje brezposelnost po statističnih regijah Slovenije glede na starost brezposelnih.
-V prvem grafu sem prikazala trajanje brezposlenosti po statističnih regijah v Sloveniji v letu 2014. V drugem grafu pa je prikazana brezposlenost prebivalcev starejših od 55 let po statističnih regijah v letu 2014.
+Prva tabela prikazuje brezposlenost po statisičnih regijah Slovenije glede na trajanje brezposlenosti. Torej v vrsticah vsebuje imensko spremenljivko (imena regij), v stolpcih pa urejenostno spremenljivko, saj je trajanje brezposelnosti razdeljeno  na več razredov. 
+V drugi tabeli sem prikazala brezposlenost po statističnih regijah Slovenije glede na spol. Statistične regije Slovije so podane v vrsticah, spol pa v stoplcih (imenski spremenljivki). Tretja tabela pa prikazuje brezposelnost po statističnih regijah Slovenije glede na starost brezposelnih, pri čemer je starost brezposelnih spet razdeljena na več razredov in je razdeljena po stolpcih, statistične regije Slovenije pa po vrsticah.
+\newpage
+Ko sem končala z uvozom tabel, sem se lotila risanja grafov. V prvem grafu, ki je stolpničaste oblike (barplot), sem prikazala trajanje brezposlenosti po statističnih regijah v Sloveniji v letu 2014. V drugem grafu je prikazana brezposlenost prebivalcev starejših od 55 let po statističnih regijah Slovenije v letu 2014.
 
 \makebox[\textwidth][c]{
-\includegraphics[width=2.5\textwidth]{../slike/grafi1.pdf}
+\includegraphics[width=1.7\textwidth]{../slike/grafi1.pdf}
 }
+\textbf{Interpretacija}: Iz grafa je razvidno, da je največja brezposlenost v Osrednjeslovenski regiji, sledi ji Podravska regija, najmanj brezposelnih pa je v Notranjsko-kraški regiji.
 
 \makebox[\textwidth][c]{
-\includegraphics[width=2.5\textwidth]{../slike/grafi2.pdf}
+\includegraphics[width=1.7\textwidth]{../slike/grafi2.pdf}
 }
+\textbf{Interpretacija}: Iz slednjega grafa je razvidno, da je spet največ brezposelnih, starejših od 55 let, v Osrednjeslovenski regiji, znova ji sledi Podravska regija, najmanj brezposelnih starejših nad 55 let pa je v Zasavski regiji.
+
 \newpage
 
 \section{Analiza in vizualizacija podatkov}
 
-V tretji fazi projekta sem narisala zemljevid Slovenije, ki prikazuje brezposelnost v Sloveniji po statističnih regijah v letu 2014. 
+Glede na to, da obravnavam podatke za Slovenijo, sem se odločila, da bom v tretji fazi projekta uvozila zemljevid Slovenije, ki prikazuje brezposlenost po statističnih regijah Slovenije v letu 2014. Iz zemljevida je razvidno, da je z najtemnejšim modrim odtenkom obarvana Osrednjeslovenska regija, kar pomeni, da ima slednja najvišjo brezposelnost. Regije, ki so obravane z belo bravo (Notranjsko-kraška, Zasavska, Koroška in Spodnjeposavska) pa imajo najmanj brezposlenih prebivalcev.
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.7\textwidth]{../slike/Slovenija.pdf}
 }
 
-% 
-% \section{Napredna analiza podatkov}
-% 
-% \includegraphics{../slike/naselja.pdf}
+\newpage
+
+\section{Napredna analiza podatkov}
+
+Za začetek naj obnovim, kaj sem ugotovila v prvih treh fazah. Torej v Sloveniji je največ brezposlenih v Osrednjeslovenski regiji, sledi ji Podravska regija, najmanj brezposlenih pa je v Notranjsko-kraški regiji. Največ brezposlenih starejših od 55 let je spet v Osrednjeslovenski regiji, najmanj pa v Zasavski regiji.
+
+
+Glede na to da se na začetku projekta, torej v 1. fazi, nisem zavedala, kaj me še vse čaka do konca projekta, si nisem niti znala izbrati najboljše podatke, tako da sem v tej fazi najprej uvozila še 3 tabele v CSV  obliki, saj sem potrebovala dodatne podatke za boljšo analizo brezposelnosti.
+\vspace{5mm}
+
+
+Na samem začetku me je zanimalo, kako sta brezposelnost in BDP med seboj povezana. Zato sem najprej uvozila tabelo bdp, ki prikazuje število brezposlenih in BDP v tekočih cenah v milijonih EUR od leta 2000 do leta 2013.
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.2\textwidth]{../slike/bdp.pdf}
+}
+
+\textbf{Interpretacija}: Iz zgornjega grafa je razvidno, da sta BDP in število brezposlenih med seboj povezana, in sicer ko BDP narašča, število brezposelnih pada, kar sem tudi pričakovala, saj je BDP mera uspešnosti gospodarstva in posledično se ob višjem BDP-ju število brezposelnih zmanjša.
+
+\newpage
+Nato me je zanimalo, če je število brezposelnih odvisno od letnega časa. Zato sem uvozila tabelo sezona, ki prikazuje število brezposelnih v letih 2014 in 2013 po mesecih. S pomočjo podatkov iz te tabele sem narisala naslednji graf:
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.2\textwidth]{../slike/sezona.pdf}
+}
+
+\textbf{Interpretacija}: Iz zgornjega grafa je razvidno, da sezona vpliva na število brezposelnih. V poletnih mesecih je opaziti zmanjšanje števila brezposelnih, kar je verjetno posledica tako imenovanega sezonskega dela. V poletnih mesecih je v razmahu turizem in posledično je takrat potrebnih več delavcev v tem sektorju. Omeniti je potrebno tudi kmetijstvo; poleti je dela veliko in ljudje, ki se ukvarjajo s kmetijstvom potrebujejo dodatno pomoč. Ravno nasprotno je stanje v zimskih mesecih. Potrebno pa je omeniti zismka športna središča, ki pozimi zaposlujejo dodatne delavce, kar omili vpliv sezone.
+
+\newpage
+Za konec sem se še odločila, da bom analizirala število brezposlenosti v zadnjih letih. Najprej sem uvozila tabelo brezposelnostpoletih, ki prikazuje število brezposelnih v Sloveniji od leta 2000 do leta 2014. Potem sem narisala spodnji graf, ki prikazuje, koliko je bilo brezposlenih v letih od 2000 do 2014 in kako dobro se podatki prilegajo različnim funkcijam. Najprej sem narisala svetlo modre pike, ki prikazujejo dejansko število brezposelnih po letih. Potem sem grafu dodala tri krivulje, ki se prilegajo podatkom.Linearni model linp sem na grafu označila z rdečo barvo, kvadratni model kvp pa z zeleno barvo. Z modro barvo sem narisala še model loep, za katerega sem uporabila funkcijo loes z lokalnim prileganjem. Os x, ki predstavlja leto, sem podajšala do leta 2020, saj do tam sega moja napoved. Izračunala sem tudi ostanek, ki je povedal da se najbolj prilega model loess , najmanj pa linearni model.
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.2\textwidth]{../slike/napoved.pdf}
+}
+
+\textbf{Interpretacija}: Svetlo modre pike na zgornjem grafu prikazujejo število brezposlenih po letih in lahko vidimo, da je število brezposelnih od leta 2000 do leta 2008 padalo, nato pa začelo naraščati, kar je verjento povezano z gospodarsko krizo, ki se je v Sloveniji začela ravno z letom 2008.\\
+
+Za konec lahko še povem, da upam, da bo v prihodnosti število brezposelnih padalo, saj je že v letu 2014 bilo manj brezposelnih kot v letu 2013.
+
+
 
 \end{document}
