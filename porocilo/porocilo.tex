@@ -35,7 +35,7 @@ Cilj projekta je predvsem spoznati delo v programskem okolju R ter analizirati b
 
 V drugi fazi projekta sem uvozila 3 tabele v obliki CSV ter narisala 2 grafa.
 Prva tabela prikazuje brezposlenost po statisičnih regijah Slovenije glede na trajanje brezposlenosti. Torej v vrsticah vsebuje imensko spremenljivko (imena regij), v stolpcih pa urejenostno spremenljivko, saj je trajanje brezposelnosti razdeljeno  na več razredov. 
-V drugi tabeli sem prikazala brezposlenost po statističnih regijah Slovenije glede na spol. Statistične regije Slovije so podane v vrsticah, spol pa v stoplcih (imenski spremenljivki). Tretja tabela pa prikazuje brezposelnost po statističnih regijah Slovenije glede na starost brezposelnih, pri čemer je starost brezposelnih spet razdeljena na več razredov in je razdeljena po stolpcih, statistične regije Slovenije pa po vrsticah.
+V drugi tabeli sem prikazala brezposlenost po statističnih regijah Slovenije glede na spol. Statistične regije Slovenije so podane v vrsticah, spol pa v stoplcih (imenski spremenljivki). Tretja tabela pa prikazuje brezposelnost po statističnih regijah Slovenije glede na starost brezposelnih, pri čemer je starost brezposelnih spet razdeljena na več razredov in je razdeljena po stolpcih, statistične regije Slovenije pa po vrsticah.
 \newpage
 Ko sem končala z uvozom tabel, sem se lotila risanja grafov. V prvem grafu, ki je stolpničaste oblike (barplot), sem prikazala trajanje brezposlenosti po statističnih regijah v Sloveniji v letu 2014. V drugem grafu je prikazana brezposlenost prebivalcev starejših od 55 let po statističnih regijah Slovenije v letu 2014.
 
@@ -66,11 +66,11 @@ Glede na to, da obravnavam podatke za Slovenijo, sem se odločila, da bom v tret
 Za začetek naj obnovim, kaj sem ugotovila v prvih treh fazah. Torej v Sloveniji je največ brezposlenih v Osrednjeslovenski regiji, sledi ji Podravska regija, najmanj brezposlenih pa je v Notranjsko-kraški regiji. Največ brezposlenih starejših od 55 let je spet v Osrednjeslovenski regiji, najmanj pa v Zasavski regiji.
 
 
-Glede na to da se na začetku projekta, torej v 1. fazi, nisem zavedala, kaj me še vse čaka do konca projekta, si nisem niti znala izbrati najboljše podatke, tako da sem v tej fazi najprej uvozila še 3 tabele v CSV  obliki, saj sem potrebovala dodatne podatke za boljšo analizo brezposelnosti.
-\vspace{5mm}
+Glede na to da se na začetku projekta, torej v 1. fazi projekta, nisem zavedala, kaj me še vse čaka do konca projekta, si nisem niti znala izbrati najboljše podatke, tako da sem v tej fazi najprej uvozila še 3 tabele v CSV  obliki, saj sem potrebovala dodatne podatke za boljšo analizo brezposelnosti.
+\vspace{3mm}
 
 
-Na samem začetku me je zanimalo, kako sta brezposelnost in BDP med seboj povezana. Zato sem najprej uvozila tabelo bdp, ki prikazuje število brezposlenih in BDP v tekočih cenah v milijonih EUR od leta 2000 do leta 2013.
+Na samem začetku me je zanimalo, če sta brezposelnost in BDP med seboj povezana. Zato sem najprej uvozila tabelo bdp, ki prikazuje število brezposlenih in BDP v tekočih cenah v milijonih EUR od leta 2000 do leta 2013. Nato sem narisala spodnji graf, na katerem modra krivulja predstavlja število brezposelnih po letih, svetlo modra pa BDP v tekočih cenah v milijonih EUR od leta 2000 do leta 2013.
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.2\textwidth]{../slike/bdp.pdf}
@@ -88,11 +88,12 @@ Nato me je zanimalo, če je število brezposelnih odvisno od letnega časa. Zato
 \textbf{Interpretacija}: Iz zgornjega grafa je razvidno, da sezona vpliva na število brezposelnih. V poletnih mesecih je opaziti zmanjšanje števila brezposelnih, kar je verjetno posledica tako imenovanega sezonskega dela. V poletnih mesecih je v razmahu turizem in posledično je takrat potrebnih več delavcev v tem sektorju. Omeniti je potrebno tudi kmetijstvo; poleti je dela veliko in ljudje, ki se ukvarjajo s kmetijstvom potrebujejo dodatno pomoč. Ravno nasprotno je stanje v zimskih mesecih. Potrebno pa je omeniti zismka športna središča, ki pozimi zaposlujejo dodatne delavce, kar omili vpliv sezone.
 
 \newpage
-Za konec sem se še odločila, da bom analizirala število brezposlenosti v zadnjih letih. Najprej sem uvozila tabelo brezposelnostpoletih, ki prikazuje število brezposelnih v Sloveniji od leta 2000 do leta 2014. Potem sem narisala spodnji graf, ki prikazuje, koliko je bilo brezposlenih v letih od 2000 do 2014 in kako dobro se podatki prilegajo različnim funkcijam. Najprej sem narisala svetlo modre pike, ki prikazujejo dejansko število brezposelnih po letih. Potem sem grafu dodala tri krivulje, ki se prilegajo podatkom.Linearni model linp sem na grafu označila z rdečo barvo, kvadratni model kvp pa z zeleno barvo. Z modro barvo sem narisala še model loep, za katerega sem uporabila funkcijo loes z lokalnim prileganjem. Os x, ki predstavlja leto, sem podajšala do leta 2020, saj do tam sega moja napoved. Izračunala sem tudi ostanek, ki je povedal da se najbolj prilega model loess , najmanj pa linearni model.
+Za konec sem se še odločila, da bom analizirala število brezposlenosti v zadnjih letih. Najprej sem uvozila tabelo brezposelnostpoletih, ki prikazuje število brezposelnih v Sloveniji od leta 2000 do leta 2014. Potem sem narisala spodnji graf, ki prikazuje, koliko je bilo brezposelnih v letih od 2000 do 2014 in kako dobro se podatki prilegajo različnim funkcijam. Najprej sem narisala svetlo modre pike, ki prikazujejo dejansko število brezposelnih po letih. Potem sem grafu dodala tri krivulje, ki se prilegajo podatkom. Linearni model linp sem na grafu označila z rdečo barvo, kvadratni model kvp pa z zeleno barvo. Enačbo premice: $$ y = -2215.976480 + 1.152939x, $$ kjer je x število brezposlenih, y pa leto, sem dobila s pomočjo ukaza linpcoefficients. Na podoben način sem dobila tudi enačbo parabole: $$ y = (7.562153e-01) * x^2 - (3.034295e+03) * x + 3.043842e+06, $$ kjer je spet x leto, y pa število brezposlenih.\\
+Z modro barvo sem narisala še model loep, za katerega sem uporabila funkcijo loes z lokalnim prileganjem. Os x, ki predstavlja leto, sem podajšala do leta 2020, saj do tam sega moja napoved. Izračunala sem tudi ostanek, ki je povedal da se najbolj prilega model loess, najmanj pa linearni model.
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.2\textwidth]{../slike/napoved.pdf}
-}
+} \\
 
 \textbf{Interpretacija}: Svetlo modre pike na zgornjem grafu prikazujejo število brezposlenih po letih in lahko vidimo, da je število brezposelnih od leta 2000 do leta 2008 padalo, nato pa začelo naraščati, kar je verjento povezano z gospodarsko krizo, ki se je v Sloveniji začela ravno z letom 2008.\\
 
